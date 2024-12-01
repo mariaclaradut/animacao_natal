@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#4079ff, #04236b);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container::before {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: url(tree.png);
+    z-index: 1;
+}
+.container .circle {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 1.7rem white);
+}
+
+.container .circle::before {
+    content: ' ';
+    position: absolute;
+    inset: -200px;
+    background: url(santa.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 500px;
+    animation: animate 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 0.1rem black);
+}
+
+@keyframes animate {
+    0%, 100% {
+        transform: translateY(-25px);
+    }
+    50% {
+        transform: translateY(25px);
+    }
+}
+
+.container .circle::after {
+    content: 'O IFSP - Campus Birigui te deseja um feliz natal!';
+    position: absolute;
+    inset: -100px -200px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+}
+
+.container .snow {
+    position: relative;
+    display: flex;
+}
+
+.container .snow span {
+    position: relative;
+    min-width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 1vw;
+    box-shadow: -100px 20px 5px white, 100px 20px 10px white;
+    animation: animateSnow 15s linear infinite;
+    animation-duration: calc(75s / var(--i))
+}
+
+.containter .snow span:nth-child(even) {
+    min-width: 10px;
+    height: 10px;
+}
+@keyframes animateSnow {
+    0% {
+        transform: translateY(-10vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
